@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Symbol data
+{% endblock %}
+
+{% block main %}
+
+    <p>{{data.name}}</p>
+    <p>{{data.price|usd}}</p>
+
+{% endblock %}

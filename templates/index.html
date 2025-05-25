@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+Finance Home
+
+{% endblock %}
+
+
+{% block main %}
+    
+    <p><span style=text-align:left>You currently have {{cash|usd}}$.</span><span style=text-align:right>Your total value is {{"%.2f"|format(cash + hold_value)}}</span></p>
+    <table>
+        <tr>
+            <th>Stocks</th>
+            <th>Shares</th>
+            <th>Current price</th>
+            <th>Total value</th>
+        </tr>
+        {% for row in stock_db %}
+        <tr>
+            <td>
+                {{row.symbol}}
+            </td>
+            <td>
+                {{row.shares}}
+            </td>
+            <td>
+                {{row.price|usd}}
+            </td>
+            <td>
+                {{ "%.2f"|format(row.price * row.shares) }}
+            </td>
+        </tr>
+        {% endfor %}
+        
+    </table>
+    
+    <p>Add Cash</p>
+    <form action=/ method=POST>
+        <input type=text placeholder=Amount name=amount>
+        <input type=submit value=add>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Query symbol
+{% endblock %}
+
+{% block main %}
+
+    <form action=/quote method=POST>
+        <input type=text autofocus name=symbol placeholder=Symbol>
+        <button class="btn btn-primary" type="submit">Check</button>
+    </form>
+
+{% endblock %}
